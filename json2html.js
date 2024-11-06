@@ -1,30 +1,16 @@
 export default function json2html(data) {
-    // Get all unique column names from the data
-    const columns = ['Name', 'Age', 'Gender']; // As specified in requirements
-    
-    // Create the table HTML
-    let html = '<table data-user="harshitkmryadav@gmail.com">\n';
-    
-    // Add header
-    html += '  <thead>\n';
-    html += '    <tr>';
-    columns.forEach(column => {
-        html += `<th>${column}</th>`;
-    });
-    html += '</tr>\n';
-    html += '  </thead>\n';
-    
-    // Add body
-    html += '  <tbody>\n';
-    data.forEach(row => {
-        html += '    <tr>';
-        columns.forEach(column => {
-            html += `<td>${row[column] || ''}</td>`;
-        });
-        html += '</tr>\n';
-    });
-    html += '  </tbody>\n';
-    html += '</table>';
-    
-    return html;
+  const headers = ["Name", "Age", "Gender"];
+  let html = `<table data-user="harshitkmryadav@gmail.com"><thead><tr>`;
+
+  headers.forEach(header => {
+    html += `<th>${header}</th>`;
+  });
+  html += `</tr></thead><tbody>`;
+
+  data.forEach(item => {
+    html += `<tr><td>${item.Name || ""}</td><td>${item.Age || ""}</td><td>${item.Gender || ""}</td></tr>`;
+  });
+  html += `</tbody></table>`;
+
+  return html;
 }
