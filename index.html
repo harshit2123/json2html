@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <title>JSON to HTML Table Test</title>
 </head>
 <body>
-    <h1>GitHub Pages Test</h1>
+    <h1>Testing JSON2HTML Module</h1>
+    <div id="table-container"></div>
     <script type="module">
         import json2html from './json2html.js';
-        console.log(json2html([{ Name: "Alice", Age: 25 }]));
+
+        const data = [
+            { Name: "Alice", Age: 25 },
+            { Name: "Bob", Age: 30 },
+            { Name: "Charlie", Age: 35, Gender: "M" }
+        ];
+
+        document.getElementById('table-container').innerHTML = json2html(data);
     </script>
 </body>
 </html>
